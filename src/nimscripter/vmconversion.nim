@@ -130,7 +130,7 @@ proc replaceGenerics(n: NimNode, genTyp: seq[(NimNode, NimNode)]) =
   ## used in generated headers for the VM.
   for i in 0 ..< n.len:
     var x = n[i]
-    if x.kind in {nnkSym, nnkIdent}:
+    if x.kind in {nnkIdent}:
       for (name, typ) in genTyp:
         if x.eqIdent(name):
           n[i] = typ
